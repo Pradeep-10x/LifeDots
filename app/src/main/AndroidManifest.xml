@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.dots365">
+
+    <!-- Required for live wallpaper -->
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+
+    <uses-feature
+        android:name="android.software.live_wallpaper"
+        android:required="true" />
+
+    <application
+        android:name=".AppContext"
+        android:allowBackup="true"
+        android:label="Dots365"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/Theme.Dots365">
+
+        <!-- LIVE WALLPAPER SERVICE -->
+        <service
+            android:name=".DotLiveWallpaperService"
+            android:permission="android.permission.BIND_WALLPAPER"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+
+            <!-- THIS META-DATA IS CRITICAL -->
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/dot_wallpaper" />
+        </service>
+
+        <!-- MAIN APP UI -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+    </application>
+
+</manifest>

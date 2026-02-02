@@ -1,4 +1,4 @@
-LifeDots — Live Goal-Tracking Wallpaper
+###LifeDots — Live Goal-Tracking Wallpaper
 
 LifeDots is a minimal Android live wallpaper that visualizes time, goals, and progress using dots.
 Each dot represents a unit of time — helping you see your progress every time you unlock your phone.
